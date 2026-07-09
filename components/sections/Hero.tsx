@@ -6,7 +6,9 @@ const RESUME_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/pu
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-8">
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#0a0a0a] px-4 sm:px-8">
+      <div aria-hidden className="aurora -z-20" />
+
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-60"
@@ -18,7 +20,9 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-3xl pt-20">
         <p className="text-sm text-[#6366f1]">Olá, eu sou</p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight text-[#f5f5f5] sm:text-6xl">
+        <h1
+          className="mt-2 text-5xl font-semibold tracking-tight text-[#f5f5f5] sm:text-7xl [text-shadow:0_0_50px_rgba(99,102,241,0.35)]"
+        >
           {personal.name}
         </h1>
         <p className="mt-3 flex items-center text-xl text-[#a3a3a3] sm:text-2xl">
@@ -33,7 +37,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="inline-flex items-center gap-1.5 rounded-[8px] bg-[#6366f1] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6366f1]/90"
+            className="inline-flex items-center gap-1.5 rounded-[8px] bg-[#6366f1] px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#6366f1]/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#6366f1]/90 hover:shadow-xl hover:shadow-[#6366f1]/30"
           >
             Ver projetos
             <ArrowRight className="size-4" />
@@ -42,7 +46,7 @@ export function Hero() {
             href={personal.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-[8px] border border-[#262626] px-4 py-2.5 text-sm font-medium text-[#f5f5f5] transition-colors hover:bg-[#1a1a1a]"
+            className="inline-flex items-center gap-1.5 rounded-[8px] border border-[#262626] px-4 py-2.5 text-sm font-medium text-[#f5f5f5] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#6366f1]/40 hover:bg-[#1a1a1a]"
           >
             <GithubIcon className="size-4" />
             GitHub
@@ -52,7 +56,7 @@ export function Hero() {
             download="Willian_Batista_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-[8px] border border-[#262626] px-4 py-2.5 text-sm font-medium text-[#f5f5f5] transition-colors hover:bg-[#1a1a1a]"
+            className="inline-flex items-center gap-1.5 rounded-[8px] border border-[#262626] px-4 py-2.5 text-sm font-medium text-[#f5f5f5] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#6366f1]/40 hover:bg-[#1a1a1a]"
           >
             <Download className="size-4" />
             Baixar currículo

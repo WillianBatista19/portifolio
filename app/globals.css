@@ -149,3 +149,67 @@
     animation: none;
   }
 }
+
+/* Hero aurora background — CSS-only, two blurred radial-gradient blobs
+   drifting slowly via transform (GPU-composited, no layout/paint cost). */
+@keyframes aurora-drift-1 {
+  0%,
+  100% {
+    transform: translate(-8%, -6%) scale(1);
+  }
+  50% {
+    transform: translate(10%, 6%) scale(1.15);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0%,
+  100% {
+    transform: translate(8%, 8%) scale(1);
+  }
+  50% {
+    transform: translate(-10%, -4%) scale(1.1);
+  }
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.aurora::before,
+.aurora::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.aurora::before {
+  top: -15%;
+  left: -10%;
+  background: radial-gradient(circle, #3b0764 0%, transparent 70%);
+  animation: aurora-drift-1 9s ease-in-out infinite;
+}
+
+.aurora::after {
+  bottom: -20%;
+  right: -10%;
+  width: 55%;
+  height: 55%;
+  background: radial-gradient(circle, #1e1b4b 0%, transparent 70%);
+  animation: aurora-drift-2 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before,
+  .aurora::after {
+    animation: none;
+  }
+}
