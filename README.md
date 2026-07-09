@@ -1,5 +1,3 @@
-Replace the current README.md with a proper portfolio README. Include:
-
 # Willian Batista — Portfolio
 
 Personal portfolio website built with Next.js 15, TypeScript and Tailwind CSS.
