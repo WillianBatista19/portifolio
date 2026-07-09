@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  tagline     String
+  description String
+  stack       String[] // array of strings
+  liveUrl     String?
+  githubUrl   String?
+  imageUrl    String?  // public URL of screenshot stored in Supabase Storage
+  isPrivate   Boolean  @default(false)
+  isFeatured  Boolean  @default(true)
+  order       Int      @default(0) // display order
+  highlights  String[] // bullet points
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
